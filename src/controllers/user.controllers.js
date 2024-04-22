@@ -431,7 +431,10 @@ const updateCoverImage = asyncHandlerWrapper(async(req, res) => {
 
 
 const getUserChannelProfile = asyncHandlerWrapper(async(req, res) => {
-    const {username } = req.params
+    const { username} = req.params;
+    
+    console.log("To access query paramaters from the url", req.query);
+
     if(!username){
         throw new ApiErrors(400, "cannot get username");
     }
@@ -474,6 +477,12 @@ const getUserChannelProfile = asyncHandlerWrapper(async(req, res) => {
         ]
     )
    
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(200, channel, "current User Fetch Successfully")
+    )
 })
 
 

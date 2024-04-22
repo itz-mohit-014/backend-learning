@@ -69,9 +69,11 @@ router.route("/update-cover-image").post(
     updateCoverImage
 )
 
-router.route("/username").post(    
+// fetch user profile
+router.route("/:username").post(    
     getUserChannelProfile
 )
+
 
 
 export default router;
